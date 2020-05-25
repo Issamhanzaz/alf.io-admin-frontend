@@ -12,4 +12,4 @@ RUN npm run build --prod
 
 FROM nginx:1.15.8-alpine
 
-COPY --from=node /usr/src/app/dist/"alf.io-admin-frontend"/ /usr/share/nginx/html
+COPY --from=node /usr/src/app/dist/ /usr/share/nginx/html
