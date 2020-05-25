@@ -1,4 +1,4 @@
-FROM node:12.16.1-alpine As builder
+FROM node:12.16.1-alpine As node
 
 WORKDIR /usr/src/app
 
@@ -12,4 +12,4 @@ RUN npm run build --prod
 
 FROM nginx:1.15.8-alpine
 
-COPY --from=builder /usr/src/app/dist/"alf.io-admin-frontend"/ /usr/share/nginx/html
+COPY --from=node /usr/src/app/dist/"alf.io-admin-frontend"/ /usr/share/nginx/html
